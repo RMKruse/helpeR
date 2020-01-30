@@ -4,9 +4,11 @@ Title: R-Helper-Files meiner Arbeit
 Version: 0.1.0
 Author: Rene-Marcel Kruse
 Maintainer: Rene-Marcel Kruse <rene-marcel.kruse@uni-goettingen.de>
+Depends: R (>= 3.1.0), cAIC4
 Description: Zusammenfassung aller für die Forschung/Arbeit geschriebenen Funktionen 
     welche bei verschiedenen Anwendungen genutzt werden. R Package Form um es einfacher
     auf Server Anwendungen zu nutzen.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.1.1

@@ -8,7 +8,7 @@
 #' @param digits Anzahl der auszugebene Nachkommastelle
 #'
 #' @author Rene-Marcel Kruse
-#' @seealso \code{\link[lme4]{cAIC4-package}}, \code{\link[lme4]{lmer}}
+#' @seealso \code{\link[cAIC4]{cAIC4-package}}, \code{\link[lme4]{lmer}}
 #' @references Saefken, B., Ruegamer, D., Kneib, T. and Greven, S. (2018):
 #' Conditional Model Selection in Mixed-Effects Models with cAIC4.
 #' \url{https://arxiv.org/abs/1803.05664}
@@ -17,7 +17,9 @@
 #' @keywords multicore, cAIC
 #' @rdname MC_anocAIC
 #' @export MC_anocAIC
-#' @import lme4 Matrix methods RLRsim mvtnorm parallel
+#' @import parallel
+#' @importFrom stats formula
+#' @importFrom cAIC4 cAIC
 #'
 MC_anocAIC <- function(objects, digits = 2){
   #Multicore Backend
@@ -30,7 +32,7 @@ MC_anocAIC <- function(objects, digits = 2){
   }
 
   objs <- objects
-  cAICs <- mclapply(objs, cAIC, mc.cores = threads)
+  cAICs <- mclapply(objs, cAIC4::cAIC(), mc.cores = threads)
   frms <- sapply(objs, function(x) Reduce(paste, deparse(formula(x))))
   refit <- sapply(cAICs, "[[", "new")
   if (any(refit))
