@@ -1,11 +1,12 @@
 Package: helpeR
 Type: Package
-Title: What the Package Does (Title Case)
+Title: R-Helper-Files meiner Arbeit
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Rene-Marcel Kruse
+Maintainer: Rene-Marcel Kruse <rene-marcel.kruse@uni-goettingen.de>
+Description: Zusammenfassung aller für die Forschung/Arbeit geschriebenen Funktionen 
+    welche bei verschiedenen Anwendungen genutzt werden. R Package Form um es einfacher
+    auf Server Anwendungen zu nutzen.
 License: MIT
 Encoding: UTF-8
 LazyData: true

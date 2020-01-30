@@ -4,8 +4,8 @@
 #' Desweiteren ist es möglich mit dieser Version auch lm-Objekte in der Liste an
 #' Kandidaten Modellen zu nutzen.
 #'
-#' @param objects 
-#' @param digits 
+#' @param objects list() an Kandidaten Modelle
+#' @param digits Anzahl der auszugebene Nachkommastelle
 #'
 #' @author Rene-Marcel Kruse
 #' @seealso \code{\link[lme4]{cAIC4-package}}, \code{\link[lme4]{lmer}}
@@ -20,7 +20,6 @@
 #' @import lme4 Matrix methods RLRsim mvtnorm parallel
 #'
 MC_anocAIC <- function(objects, digits = 2){
-  
   #Multicore Backend
   numberCores <- detectCores()
   tasks <- length(objects)
@@ -29,7 +28,7 @@ MC_anocAIC <- function(objects, digits = 2){
   } else {
     threads <- numberCores -1
   }
-  
+
   objs <- objects
   cAICs <- mclapply(objs, cAIC, mc.cores = threads)
   frms <- sapply(objs, function(x) Reduce(paste, deparse(formula(x))))
