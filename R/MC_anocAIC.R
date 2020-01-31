@@ -32,7 +32,7 @@ MC_anocAIC <- function(objects, digits = 2){
   }
 
   objs <- objects
-  cAICs <- mclapply(objs, cAIC4::cAIC(), mc.cores = threads)
+  cAICs <- mclapply(objs, cAIC, mc.cores = threads)
   frms <- sapply(objs, function(x) Reduce(paste, deparse(formula(x))))
   refit <- sapply(cAICs, "[[", "new")
   if (any(refit))

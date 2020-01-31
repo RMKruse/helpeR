@@ -16,6 +16,7 @@
 #' @rdname MC_getWeights
 #' @export MC_getWeights
 #' @importFrom lme4 getME
+#' @import parallel
 #' @importFrom utils capture.output
 #'
 MC_getWeights <- function(models)

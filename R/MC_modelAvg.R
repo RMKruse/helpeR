@@ -17,6 +17,7 @@
 #' @rdname MC_modelAvg
 #' @export MC_modelAvg
 #' @importFrom lme4 getME ranef
+#' @import parallel
 #'
 MC_modelAvg <- function (models, opt = TRUE){
   call <- match.call()
