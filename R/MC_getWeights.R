@@ -25,7 +25,7 @@ MC_getWeights <- function(models)
   .envi         <- environment()
   # Creation of the variables required for the optimization of weights
   # TODO: Suppress anocAIC's automatic output
-  invisible(capture.output(modelcAIC <- MC_anocAIC(m)))
+  modelcAIC     <- MC_anocAIC(m)
   df            <- modelcAIC[[2]]
   tempm         <- m[[which.max(modelcAIC$df)]]
   seDF          <- getME(tempm, "sigma")
@@ -34,7 +34,7 @@ MC_getWeights <- function(models)
   mu            <- list()
   # TODO: that needs to be made more effective ...
   for(i in 1:length(m)){
-    mu[[i]]     <- getME(m[[i]], "mu")
+    mu[[i]]     <- fitted(m[[i]])
   }
   mu            <- t(matrix(unlist(mu), nrow = length(m), byrow = TRUE))
   weights       <- rep(1/length(m), times = length(m))
